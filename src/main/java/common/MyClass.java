@@ -1,7 +1,7 @@
 package common;
 
-public class MyClass {
-
+public class MyClass
+{
 	public static int myFunc(int a, int b) {
 		
 		int sum = 0;
@@ -9,8 +9,5 @@ public class MyClass {
 			sum += i;
 		}
 		return sum;
-	}  
+	}
 }
-
-
-

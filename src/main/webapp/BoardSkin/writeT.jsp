@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file = "./commons/header.jsp" %>
-<body>
+<%@ include file="./commons/header.jsp" %>
+<body> 
 <div class="container">
     <!-- Top영역 -->
-    <%@ include file = "./commons/top.jsp" %>
+    <%@ include file="./commons/top.jsp" %>
     <!-- Body영역 -->
     <div class="row">
         <!-- Left메뉴영역 -->
-        <%@ include file = "./commons/left.jsp" %> 
+        <%@ include file="./commons/left.jsp" %>
         <!-- Contents영역 -->
         <div class="col-9 pt-3">
             <h3>게시판 작성 - <small>자유게시판</small></h3>
@@ -76,7 +76,7 @@
         </div>
     </div>
     <!-- Copyright영역 -->
-    <%@ include file = "./commons/copyright.jsp" %>
+    <%@ include file="./commons/copyright.jsp" %>
 </div>
 </body>
 </html>
