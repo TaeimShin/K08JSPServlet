@@ -12,7 +12,7 @@
     	hasMoreElements() : 출력할 정보가 있는지 확인하여 boolean값을 반환한다. 
     	nextElement() : 헤더명을 반환한다. 
     */
-    Enumeration headers = request.getHeaderNames();  
+    Enumeration<?> headers = request.getHeaderNames();  
     while (headers.hasMoreElements()) {  
     	//헤더명을 반환한다.
         String headerName = (String)headers.nextElement();
