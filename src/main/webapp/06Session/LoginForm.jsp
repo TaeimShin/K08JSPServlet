@@ -7,7 +7,7 @@
 <title>session</title>
 </head>
 <body>
-	<%--  <jsp:inlude page="../Common/Link.jsp"/>--%>
+	<jsp:include page="../Common/Link.jsp"/>
 	<h2>로그인 페이지</h2>
 	<!-- 
 	request영역에 해당 속성이 있는지 확인하여 속성이 있다면
@@ -32,7 +32,7 @@
 			form.user_id.focus();
 			return false;
 		}
-		if(form.user_pw.value=""){
+		if(form.user_pw.value==""){
 			alert("패스워드를 입력하세요");
 			form.user_pw.focus();
 			return false;
@@ -51,7 +51,7 @@
 	<input type="submit" value="로그인하기" />
 	</form>
 	<%
-	} else {
+	} else { //로그인된 상태
 	%>
 		<%= session.getAttribute("UserName") %> 회원님, 로그인하셨습니다. <br />
 		<a href="Logout.jsp">[로그아웃]</a>
