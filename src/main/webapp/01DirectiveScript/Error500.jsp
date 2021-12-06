@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"> 
 <title>page 지시어 - errorPage, isErrorPage 속성</title>
 </head>
 <body>

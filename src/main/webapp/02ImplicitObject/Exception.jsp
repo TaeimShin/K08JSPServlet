@@ -4,7 +4,7 @@
 <head><title>내장 객체 - exception</title></head>
 <body>
 <%
-//응답객체를 통해 현재 서버의 상태를 정수 형태로 얻어온다.
+//응답객체를 통해 현재 서버의 상태를 정수 형태로 얻어온다. 
 int status = response.getStatus();  
 
 //에러 코드에 따라 적절한 메세지를 출력한다. 
@@ -21,7 +21,7 @@ else if (status == 500) {
     out.print("<br/>소스 코드에 오류가 없는지 확인해주세요.");
 }
 %>
-<img src="../images/Error.jpg" alt="오류발생됨" width="400"/>
-
+<br/>
+<img src="../images/Error.jpg" width="300" />
 </body>
 </html>
