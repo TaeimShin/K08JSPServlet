@@ -13,7 +13,7 @@
     	nextElement() : 헤더명을 반환한다. 
     */
     Enumeration headers = request.getHeaderNames();  
-    while (headers.hasMoreElements()) {  
+    while (headers.hasMoreElements()) {   
     	//헤더명을 반환한다.
         String headerName = (String)headers.nextElement();
     	//getHeader()메서드를 통해 헤더값을 반환한다. 
