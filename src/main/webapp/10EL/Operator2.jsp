@@ -35,7 +35,7 @@ pageContext.setAttribute("sizeZero", new ArrayList());
      -->
     <h3>null 연산</h3>
     null + 10 : ${ null + 10 } <br />
-    nullStr + 10 : ${ nullStr + 10 } <br /> 
+    nullStr + 10 : ${ nullStr + 10 } <br />
     param.noVar > 10 : ${ param.noVar > 10 }
 </body>
 </html>
