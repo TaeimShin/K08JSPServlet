@@ -38,7 +38,7 @@
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
     <welcome-file>HelloJSP.jsp</welcome-file>
   </welcome-file-list>
   
@@ -94,69 +94,66 @@
   
   
   <!-- HelloServlet.jsp에 작성한 요청명에 대한 매핑 -->
-  <servlet><!-- 서블릿등록 -->
-  	<servlet-name>HelloServlet</servlet-name>
-  	<servlet-class>servlet.HelloServlet</servlet-class>
+  <servlet>  <!-- 서블릿 등록 -->
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>servlet.HelloServlet</servlet-class>
   </servlet>
-  <servlet-mapping> <!-- 서블릿과 요청명 매핑  -->
-  	<servlet-name>HelloServlet</servlet-name>
-  	<url-pattern>/13Servlet/HelloServlet.do</url-pattern>
+  <servlet-mapping>  <!-- 서블릿과 요청명 매핑 -->
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/13Servlet/HelloServlet.do</url-pattern>
   </servlet-mapping>
   
-  <!-- 서블릿에서 즉시 출력하기 요청명 매칭 -->
-   <servlet><!-- 서블릿등록 -->
-  	<servlet-name>DirectServletPrint</servlet-name>
-  	<servlet-class>servlet.DirectServletPrint</servlet-class>
+  <!-- 서블릿에서 즉시 출력하기 요청명 매칭 -->  
+  <servlet>
+    <servlet-name>DirectServletPrint</servlet-name>
+    <servlet-class>servlet.DirectServletPrint</servlet-class>
   </servlet>
-  <servlet-mapping> <!-- 서블릿과 요청명 매핑  -->
-  	<servlet-name>DirectServletPrint</servlet-name>
-  	<url-pattern>/13Servlet/DirectServletPrint.do</url-pattern>
+  <servlet-mapping>
+    <servlet-name>DirectServletPrint</servlet-name>
+    <url-pattern>/13Servlet/DirectServletPrint.do</url-pattern>
   </servlet-mapping>
   
-  <!-- MVC패턴으로 회원인증하기 매핑 처리 -->
-  <servlet><!-- 서블릿등록 -->
-  	<servlet-name>MemberAuth</servlet-name>
-  	<servlet-class>servlet.MemberAuth</servlet-class>
-  	<!-- 해당 서블릿 내에서만 사용할 수 있는 초기화 파라미터 -->
-  	<init-param>
-  		<param-name>admin_id</param-name>
-  		<param-value>nakja</param-value>
-  	</init-param>
+  <!-- MVC 패턴으로 회원인증 하기 매핑 처리 -->	
+  <servlet>
+    <servlet-name>MemberAuth</servlet-name>
+    <servlet-class>servlet.MemberAuth</servlet-class>
+    <!-- 해당 서블릿 내에서만 사용할 수 있는 초기화 파라미터 -->
+    <init-param>
+      <param-name>admin_id</param-name>
+      <param-value>nakja</param-value>
+    </init-param>
   </servlet>
-  <servlet-mapping> <!-- 서블릿과 요청명 매핑  -->
-  	<servlet-name>MemberAuth</servlet-name>
-  	<url-pattern>/13Servlet/MemberAuth.mvc</url-pattern>
+  <servlet-mapping>
+    <servlet-name>MemberAuth</servlet-name>
+    <url-pattern>/13Servlet/MemberAuth.mvc</url-pattern>
   </servlet-mapping>
-  
-  <!--  -->
-  
 
-	<!-- Model2 방식의 게시판 구현하기  -->
-	<!-- 리스트(목록) 서블릿 매핑 -->
-  <servlet><!-- 서블릿등록 -->
-  	<servlet-name>MVCBoardList</servlet-name>
-  	<servlet-class>model2.mvcboard.ListController</servlet-class><!-- 서블릿클래스 -->
+  <!-- Model2 방식의 게시판 구현하기 -->
+  <!-- 리스트(목록) 서블릿 매핑 -->	
+  <servlet>
+    <servlet-name>MVCBoardList</servlet-name>
+    <servlet-class>model2.mvcboard.ListController</servlet-class><!-- 서블릿 클래스 -->
   </servlet>
-  <servlet-mapping> 
-  	<servlet-name>MVCBoardList</servlet-name> <!--서블릿명  -->
-  	<url-pattern>/mvcboard/list.do</url-pattern><!-- 요청명 -->
+  <servlet-mapping>
+    <servlet-name>MVCBoardList</servlet-name><!-- 서블릿명 -->
+    <url-pattern>/mvcboard/list.do</url-pattern><!-- 요청명 -->
   </servlet-mapping>
-  
   <!-- 글쓰기 서블릿 매핑 -->
-  
-   <servlet><!-- 서블릿등록 -->
-  	<servlet-name>MVCBoardWrite</servlet-name>
-  	<servlet-class>model2.mvcboard.WriteController</servlet-class>
+  <servlet>
+    <servlet-name>MVCBoardWrite</servlet-name>
+    <servlet-class>model2.mvcboard.WriteController</servlet-class>
   </servlet>
-  <servlet-mapping> <!-- 서블릿과 요청명 매핑  -->
-  	<servlet-name>MVCBoardWrite</servlet-name>
-  	<url-pattern>/mvcboard/write.do</url-pattern>
+  <servlet-mapping>
+    <servlet-name>MVCBoardWrite</servlet-name>
+    <url-pattern>/mvcboard/write.do</url-pattern>
   </servlet-mapping>
-  
   <!-- 첨부파일의 제한 용량 -->
   <context-param>
     <param-name>maxPostSize</param-name>
     <param-value>1024000</param-value>
   </context-param>
   
+  
+  
+
 </web-app>

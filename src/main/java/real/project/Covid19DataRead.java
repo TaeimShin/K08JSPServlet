@@ -12,12 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
- 
-/*
-라이브러리 다운로드
-https://mvnrepository.com/artifact/org.jsoup/jsoup/1.11.3
-
- */
 @WebServlet("/Covid19DataRead.do")
 public class Covid19DataRead extends HttpServlet {
 	
@@ -27,7 +21,7 @@ public class Covid19DataRead extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String dataPortal = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson";
-		dataPortal += "?serviceKey=b%2Fype5nEeO41GEZc7dXs5Hd%2FwFaGqj047kN9QW1Xz%2B1Ap5JOVN41%2BFcQiIzAk1BsyVYr8cn5ZekIJdW%2FRMHnoA%3D%3D";
+		dataPortal += "?serviceKey=jk%2Fiz%2FtgJJf08ve9heFmj6X6zKfWBjbGuq131IJPQwLOlkH5EehnPtg7GjQ74KtY5plO2zYm9SDjK8rJY8RbFg%3D%3D";
 		dataPortal += "&pageNo=1";
 		dataPortal += "&numOfRows=10";
 		dataPortal += "&startCreateDt="+req.getParameter("startCreateDt");
@@ -46,7 +40,8 @@ public class Covid19DataRead extends HttpServlet {
 		StringBuffer sourceCode = new StringBuffer();
 		try {
 			url = new URL(addr);
-			BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+			BufferedReader br = new BufferedReader(
+					new InputStreamReader(url.openStream()));
 			String sourceLine = "";
 			while((sourceLine=br.readLine()) != null) {
 				sourceCode.append(sourceLine+"\n");
@@ -58,3 +53,13 @@ public class Covid19DataRead extends HttpServlet {
 		return sourceCode.toString();
 	}	
 }
+
+
+
+
+
+
+
+
+
+

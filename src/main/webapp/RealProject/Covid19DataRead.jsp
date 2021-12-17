@@ -10,46 +10,42 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-
 <script>
-$(function(){	
-	
-	
-	//jquery ui의 데이트피커 선언. 한국에서 사용하는 날짜포맷으로 변경
+$(function(){
+	//jQuery UI의 데이트피커 선언. 한국에서 사용하는 날짜포맷으로 변경
 	$( "#startCreateDt" ).datepicker();
 	$( "#startCreateDt" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 	$( "#endCreateDt" ).datepicker();
 	$( "#endCreateDt" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
-
+	
 	//문서가 로드될때 $.ajax()에서 사용할 기본적인 속성 선언
 	$.ajaxSetup({
 		url : "../Covid19DataRead.do",
 		type : "get",
 		contentType : "text/html;charset:utf-8;",
-		dataType : "xml", //콜백데이터 타입
+		dataType : "xml",//콜백데이터 타입
 	});
-	
 	$('#submitBtn').click(function(){
 		//날짜에 포함된 -(하이픈)을 replace()를 통해 제거
 		var scd = $('#startCreateDt').val().replace(/-/g,'');
 		var ecd = $('#endCreateDt').val().replace(/-/g,'');
 		/*
-		/-/g 와 같은 정규표현식을 사용하면 문자열내의 모든 하이픈을 제거해준다.
-		정규표현식을 쓰지 않으면 앞에 있는 하이픈 하나만 제거된다.
+		/-/g 와 같은 정규표현식을 사용하면 문자열 내의 모든 하이픈을 제거해준다. 
+		정규표현식을 쓰지 않으면 앞에 있는 하이픈 하나만 제거된다. 
 		*/
 		
-		//여기에서 공공데이터 API요청
+		//여기에서 공공 데이터 API요청
 		$.ajax({
-			data : {				
-				startCreateDt : scd,
-				endCreateDt : ecd,
-			},
+			data : { //파라미터				
+				startCreateDt : scd, //시작일
+				endCreateDt : ecd, //종료일
+ 			},
 			success : sucFuncXml,
 			error : errFunc,
 		});		
 	});
 });
-//요청에 성공한 경우의 콜백메서드
+//요청에 성공한 경우의 콜백 메서드
 function sucFuncXml(d){
 	var str = "";
 	var resultCode = $(d).find("response").find("header").find("resultCode");
@@ -60,17 +56,18 @@ function sucFuncXml(d){
 	var accExamCnt = new Array();//누적 검사 수
 	var todayDecideCnt = new Array();//금일 확진자 수
 
-	//검색한 날짜 구간에서 반환된 결과데이터를 반복해서 파싱한다.
-	$(d).find("response").find("body").find("items").find("item").each(function(index){
+	//검색한 날짜 구간에서 반환된 결과데이터를 반복해서 파싱한다. 
+	$(d).find("response").find("body").find("items").find("item").each(function(index) {
 		
-		//find()를 통해 노드를 검색한 후 text()를 통해 값을 읽어온다.
+		//find()를 통해 노드를 검색한 후 text()를 통해 값을 읽어온다. 
 		createDt[index] = $(this).find("createDt").text();
 		stateDt[index] = $(this).find("stateDt").text();
 		decideCnt[index] = $(this).find("decideCnt").text();
 		deathCnt[index] = $(this).find("deathCnt").text();
-		accExamCnt[index] = $(this).find("accExamCnt").text();
-		
-		console.log(stateDt[index], decideCnt[index], deathCnt[index], accExamCnt[index]);
+		accExamCnt[index] = $(this).find("accExamCnt").text();		
+		//콘솔에서 데이터 확인
+		console.log(stateDt[index], decideCnt[index], deathCnt[index], 
+				accExamCnt[index]);
 	});	 
 	//웹브라우저에 출력할 테이블 생성
 	var table = "<table class=\"table table-bordered mt-3\">"
@@ -82,7 +79,7 @@ function sucFuncXml(d){
 		+"	<th>누적검사수</th>"
 		+"</tr>";
 	for(var i = 0; i < decideCnt.length-1; i++){
-		//금일 확진자수 계산 = 오늘확진자수 - 어제확진자수
+		//금일확진자수 계산 = 오늘확진자수 - 어제확진자수
 		todayDecideCnt[i] = decideCnt[i] - decideCnt[i+1];
 		
 		console.log("날짜", createDt[i]);
@@ -98,15 +95,13 @@ function sucFuncXml(d){
 			+"</tr>";
 	}	
 	table += "</table>";
-	//결과출력
+	//결과 출력
 	$('#resultShow').html(table);
 }
 function errFunc(e){
 	alert("실패:"+e.status+":"+e.statusText);
 }
 </script>
-
-
 </head>
 <body>
 <div class="container">
@@ -122,3 +117,10 @@ function errFunc(e){
 </div>
 </body>
 </html>
+
+
+
+
+
+
+

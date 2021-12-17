@@ -2,12 +2,12 @@ package utils;
 
 public class BoardPage {
 	/*
-	totalCount : 전체 게시물의 갯수 
-	pageSize : 한 페이지에 출력할 게시물의 갯수  
-	blockPage : 한 블럭당 출력할 페이지번호의 갯수    
-	pageNum : 현재 진입한 목록의 페이지 번호   
-	reqUrl : 현재 목록을 실행한 JSP파일의 경로 혹은 요청명
-	 */
+		totalCount : 전체 게시물의 갯수
+		pageSize : 한 페이지에 출력할 게시물의 갯수
+		blockPage : 한 블럭당 출력할 페이지번호의 갯수
+		pageNum : 현재 진입한 목록의 페이지 번호
+		reqUrl : 현재 목록을 실행한 JSP 파일의 경로 혹은 요청명
+	*/
     public static String pagingStr(int totalCount, int pageSize, int blockPage,
             int pageNum, String reqUrl) {
         String pagingStr = "";
